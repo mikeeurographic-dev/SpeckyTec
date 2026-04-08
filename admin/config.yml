@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main        # change to "master" if your default branch is master
+
+publish_mode: editorial_workflow
+
+media_folder: "assets/uploads"   # folder where uploaded PDFs will go
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "guides"
+    label: "Guides & PDFs"
+    folder: "guides"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Category", name: "category", widget: "string"}
+      - {label: "PDF File", name: "pdf", widget: "file", allow_multiple: false}
+      - {label: "Description", name: "description", widget: "text"}
